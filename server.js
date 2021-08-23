@@ -17,6 +17,7 @@ app.get('/',(req,res)=>{
         console.log(err);
     })
 })
+//return data on call (bored data :/)
 app.get('/data',async (req,res)=>{
     let response = await fetch('https://www.boredapi.com/api/activity');
     let json = await response.json();
