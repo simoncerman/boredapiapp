@@ -19,8 +19,13 @@ app.get('/',(req,res)=>{
 })
 //return data on call (bored data :/)
 app.get('/data',async (req,res)=>{
-    let response = await fetch('https://www.boredapi.com/api/activity');
-    let json = await response.json();
-    res.json(json);
+    let data = [];
+    let itemNumber = 8;
+    for (let i = 0; i < itemNumber; i++) {
+        let response = await fetch('https://www.boredapi.com/api/activity');
+        let json = await response.json();
+        data.push(json);
+    }
+    res.json(data);
     res.end();
 })

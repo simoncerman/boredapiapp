@@ -4,17 +4,14 @@ function getData(){
     .then(response=>response.json())
     .then(data =>{
         console.log(data);
+        for (let y = 0; y < data.length; y++) {
+            const element = data[y];
+            let box = document.createElement("div");
+            box.classList.add('box');
+            let h3 = document.createElement("h3");
+            h3.innerText = element.activity;
+            box.appendChild(h3);
+            document.getElementById('content').appendChild(box);          }
 
-        let main = document.createElement("h2");
-        main.innerText = data.activity;
-        let type = document.createElement("p");
-        type.innerText = "Type: " + data.type;
-        let accessibility = document.createElement("p");
-        accessibility.innerText = "accessibility: "+(1-data.accessibility);
-        
-
-        document.getElementById('content').appendChild(main);
-        document.getElementById('content').appendChild(type);
-        document.getElementById('content').appendChild(accessibility);
     })
 }
